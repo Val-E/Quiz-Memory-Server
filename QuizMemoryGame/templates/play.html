@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block title %} Play {% endblock %}
+
+
+{% block main %}
+<center>
+  <h3 class="h3" id="game_name"></h3>
+  <div id="question_container"></div>
+  <div id="answer_container"></div>
+    <div id="tb">
+      <h5 class="h5" id='teams'>How many Players/Teams you are (Just required for the quiz and the memory.):
+        <input type='number' id='teams_num' placeholder='0'/>
+      </h5>
+      <h4 class="h4" >Enter your game-code here:</h4>
+      <p><input id="json"></p>
+      <button class="btn btn-danger" onclick="game()" type="button">Enter</button>
+    </div>
+</center>
+<script src="/static/js/game.js"></script>
+{% endblock %}

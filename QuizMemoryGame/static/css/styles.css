@@ -1,0 +1,64 @@
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
+@media (max-width: 575.98px) {
+
+}
+.flink {
+    color: white;
+}
+
+.foot {
+    float: center;
+    display: inline-block;
+    margin-left: 100px;
+    margin-right: 100px
+    color: white;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#logo {
+    width: 16%;
+    height: 16%;
+}
+
+#logo_container {
+    margin-top: 1%;
+    margin-bottom: 4%;
+}
+
+#main {
+    margin-top: 5%;
+    margin-bottom: 4%;
+}
+
+#s_info {
+    margin-left:20px;
+}
+
+#start_buttons {
+    margin-top: 4%;
+    margin-bottom: 5%;
+}
+
+#title {
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+}

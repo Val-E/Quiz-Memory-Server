@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+
+{% block title %} Create Game {% endblock %}
+
+
+{% block main %}
+<center>
+  {% if create_challenges == False %}
+    <h1>Create a {{game}}.</h1>
+    <form class="form-inline" action="{{game}}" method="post">
+      <table id="tbl" class="table table-light">
+        <thead>
+          <tr>
+            <th scope="col">Game Name (Game-ID):</th>
+            {% if game == "quiz" %}
+              <th>How many categories do you want have (max 20):</th>
+              <th scope="col">How many levels do you want have (max 20):</th>
+            {% endif %}
+
+            {% if game == "memory" %}
+              <th scope="col">How many horizontal cards do you want have (max 20):</th>
+              <th scope="col">How many vertical cards do you want have (max 20):</th>
+            {% endif %}
+            <th scope="col">Submit:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <div class="form-group mb-2">
+                <input type="text" class="form-control" name="game_id" placeholder="Give your game a name!" />
+              </div>
+            </th>
+            <td>
+              <div class="form-group mb-2">
+                <input type="number" class="form-control" id="num1"  name="num1" placeholder={{placeholder1}} />
+              </div>
+            </td>
+            <td>
+              <div class="form-group mb-2">
+                <input type="number" class="form-control" id="num2" name="num2" placeholder={{placeholder2}} />
+              </div>
+            </td>
+            <td>
+              {% if game == "quiz" %}
+                <input
+                  type="button"
+                  class="btn btn-primary mb-2"
+                  value="Generate your table!"
+                  onclick="generate_table('quiz')"
+                />
+              {% endif %}
+              {% if game == "memory" %}
+                <input
+                  type="button"
+                  class="btn btn-primary mb-2"
+                  value="Generate your table!"
+                  onclick="generate_table('memory')"
+                />
+              {% endif %}
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="tb"></div>
+    </form>
+    <script src="/static/js/table.js"></script>
+  {% endif %}
+  {% if create_challenges == True %}
+    <h2 class="h2">Your code for your game:</h2>
+    <p><input id="code_json" value="{{json}}"></p>
+    <button class="btn btn-danger"  onclick="getJSON()">Copy code</button>
+    <script>
+      function getJSON() {
+        document.getElementById("code_json").select();
+        document.execCommand("copy");
+      }
+   </script>
+  {% endif %}
+  <h4 class="h4">
+    Have a code? Play here
+    <a href="/play">
+      <button class="btn btn-info">Play</button>
+    </a>
+  </h4>
+</center>
+{% endblock %}

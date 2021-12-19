@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block title %} Choose Game! {% endblock%}
+
+
+{% block main %}
+<center>
+  <div class="card games" style="width: 18rem;">
+    <img src="/static/images/quiz.jpg" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Quiz</h5>
+      <p class="card-text">Answer questions correctly and get points!</p>
+      <a href="/play" class="btn btn-primary">Play</a>
+      <a href="/create/quiz" class="btn btn-info">Create</a>
+    </div>
+  </div>
+
+  <div class="card games" style="width: 18rem;">
+    <img src="/static/images/memory.jpg" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Memory</h5>
+      <p class="card-text">Find pars of card and get points!</p>
+      <a href="/play" class="btn btn-primary">Play</a>
+      <a href="/create/memory" class="btn btn-info">Create</a>
+    </div>
+  </div>
+</center>
+<style>
+  .games {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 6%;
+    margin-bottom: 4%;
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block title %} Error {% endblock%}
+
+
+{% block main %}
+<center>
+  <h2 class="h2">{{errormsg}}</h2>
+  <img class="rounded" id="errorimg" src="/static/images/everythingwillbefin.jpg"/>
+  <h3 class="h3">Hope you still have a nice day!</h3>
+</center>
+<style>
+  #errorimg {
+    width: 40%;
+    height: 40%;
+  }
+</style>
+{% endblock %}

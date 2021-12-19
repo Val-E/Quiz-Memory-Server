@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+{% block title %} Home {% endblock%}
+
+
+{% block main %}
+<center>
+  <div id="title">
+    <center>
+      <h1 class="h1">Create a Quiz or a Memory</h1>
+    </center>
+  </div>
+  <div id="logo_container">
+    <img  id="logo" src="/static/images/lightlogo.png">
+  </div>
+  <div id="start_buttons">
+    <a href="/games"><button type="button" class="btn btn-outline-success">Getting Started</button></a>
+    <button
+      type="button"
+      class="btn btn-danger dropdown-toggle"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false">
+        Create Game
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/create/quiz">Quiz</a>
+          <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/create/memory">Memory</a>
+      </div>
+  </div>
+</center>
+{% endblock %}

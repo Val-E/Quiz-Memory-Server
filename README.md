@@ -32,5 +32,6 @@ If he picks wrong, the over player can make his pick.
 Browser, which supports HTML5 and Javascipt.
 
 # Software required to host server: 
-flask
+flask;
+
 python3.8 or later

@@ -1,3 +1,4 @@
+/* main */
 function game() {
   round_count = 0;
   question = "";
@@ -46,6 +47,7 @@ function game() {
 }
 
 
+/* build memory field */
 function memory(teams, body, tbl, tblBody, row) {
   id_list = []
   for (var i = 0; i < m1 * m2; i++) {
@@ -101,6 +103,7 @@ function memory(teams, body, tbl, tblBody, row) {
 }
 
 
+/* build quiz field */
 function quiz(teams, body, tbl, tblBody, row) {
   tblBody.appendChild(row);
   body.appendChild(tbl);
@@ -138,11 +141,13 @@ function quiz(teams, body, tbl, tblBody, row) {
 }
 
 
+/* sleep function */
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 
+/* load Answer in Answer Container (used by Memory) */
 function setA(i) {
   if (answer == "") {
     document.getElementById("answer_container").innerHTML = "<h4 class='h4'>Answer:</h4>" + "<h6 class='h6'>" + json["answer" + i] + "</h6>";
@@ -158,7 +163,7 @@ function setA(i) {
 }
 
 
-/* set Question */
+/* load Question in Question Container (used by Memory) */
 function setQ(i) {
   if (question == "") {
      document.getElementById("question_container").innerHTML = "<h4 class='h4'>Question:</h4>" + "<h6 class='h6'>" + json["question" + i] + "</h6>";
@@ -176,7 +181,7 @@ function setQ(i) {
 
 
 
-/* check if guess is correct */
+/* check if guess is correct (used by memory) */
 function checkCard(i) {
   if (t == teams_length) {
     t = 0;
@@ -206,6 +211,7 @@ function checkCard(i) {
 }
 
 
+/* set Question (used by quiz) */
 function setQuestion(q) {
   if (question != "") {
     return;
@@ -218,6 +224,7 @@ function setQuestion(q) {
 }
 
 
+/* check if answer is correct (used by quiz) */
 function check() {
   if (question == "") {
     return;
@@ -241,6 +248,7 @@ function check() {
 }
 
 
+/* check if game is over, print result */
 function checkEnd() {
   if (round_count >= json['num1'] * json['num2']) {
     document.getElementById("answer_container").innerHTML = "";

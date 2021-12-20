@@ -1,4 +1,4 @@
-import math
+from math import fabs
 from flask import Flask, url_for, request, render_template
 
 
@@ -24,8 +24,8 @@ def games():
 def create(game):
     if request.method == "POST":
         try:
-            num1 = math.fabs(int(request.form["num1"]))
-            num2 = math.fabs(int(request.form["num2"]))
+            num1 = fabs(int(request.form["num1"]))
+            num2 = fabs(int(request.form["num2"]))
             game_id = request.form["game_id"]
         except ValueError:
             return render_template(
@@ -51,22 +51,22 @@ def create(game):
             'num2===' + str(num2) + ';;; '
 
         try:
+            c = int(num1 * num2)
             if game == "quiz":
                 for i in range(int(num1)):
                     game_code += 'category' + str(i+1) + '===' + str(request.form["category"+str(i+1)]) + ';;; '
 
-                c = int(num1 * num2)
-                for i in range(int(num1 * num2)):
+                for i in range(c):
                     game_code += 'question' + str(i+1) + '===' + str(request.form["question"+str(i+1)]) + ';;; '
 
-                for i in range(int(num1 * num2)):
+                for i in range(c):
                     game_code += 'answer' + str(i+1) + '===' + str(request.form["answer"+str(i+1)]) + ';;; '
 
             if game == "memory":
-                for i in range(int(num1 * num2)):
+                for i in range(c):
                     game_code += 'question' + str(i+1) + '===' + str(request.form["question"+str(i+1)]) + ';;; '
 
-                for i in range(int(num1 * num2)):
+                for i in range(c):
                     game_code += 'answer' + str(i+1) + '===' + str(request.form["answer" + str(i+1)]) + ';;; '
         except KeyError:
             return render_template(
@@ -111,4 +111,4 @@ def error_handler(e):
 
 
 if __name__ == "__main__":
-    app.run(port=3000, debug=True, threaded=True)
+    app.run(port=3000, debug=False, threaded=True)

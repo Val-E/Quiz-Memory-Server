@@ -158,6 +158,7 @@ function setA(i) {
 }
 
 
+/* set Question */
 function setQ(i) {
   if (question == "") {
      document.getElementById("question_container").innerHTML = "<h4 class='h4'>Question:</h4>" + "<h6 class='h6'>" + json["question" + i] + "</h6>";
@@ -174,6 +175,8 @@ function setQ(i) {
 }
 
 
+
+/* check if guess is correct */
 function checkCard(i) {
   if (t == teams_length) {
     t = 0;
@@ -240,9 +243,11 @@ function check() {
 
 function checkEnd() {
   if (round_count >= json['num1'] * json['num2']) {
+    document.getElementById("answer_container").innerHTML = "";
+	document.getElementById("question_container").innerHTML = "";
+
     score = "<h4 class='h4'>Results:</h4>";
     for (var i = 0; i < teams_length; i++) {
-      document.getElementById("answer_container").innerHTML = "";
       score += "<h6 class='h6'> Team/Player" + (i + 1) + ": " + teams[i] + "</h6>";
     }
     document.getElementById("tb").innerHTML = score;
